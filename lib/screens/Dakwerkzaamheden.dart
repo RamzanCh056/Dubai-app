@@ -20,7 +20,7 @@ class _dakwerkzaamState extends State<dakwerkzaam> {
   final number='+31850026083';
 //  FirebaseAuth _auth=FirebaseAuth.instance;
   final int  numbers =031626847816;
-  final String message = "Hello";
+  final String message = "Hello there";
   void launchWhatsapp(numbers, message)async{
     String url = "whatsapp://send?phone=$numbers&text=$message";
     await canLaunch(url) ? launch(url) : print("Can't open whatsapp");
@@ -166,7 +166,8 @@ class _dakwerkzaamState extends State<dakwerkzaam> {
           color: Colors.green,
           minWidth: double.infinity,
           onPressed: (){
-            launchWhatsapp(numbers, message);
+            openwhatsapp();
+            //launchWhatsapp(numbers, message);
 
           },
           child: Row(
@@ -361,5 +362,28 @@ class _dakwerkzaamState extends State<dakwerkzaam> {
     ),
 
     );
+  }
+  openwhatsapp() async{
+    var whatsapp ="+31626847816";
+    var whatsappURl_android = "https://wa.me/?text=Hello";
+    var whatappURL_ios ="https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
+    await launch( whatsappURl_android);
+    // if(Platform.isIOS){
+    //   // for iOS phone only
+    //   if( await canLaunch(whatappURL_ios)){
+    //     await launch(whatappURL_ios, forceSafariVC: false);
+    //   }else{
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: new Text("whatsapp no installed")));
+    //   }
+    // }
+    // else{
+    //   // android , web
+    //   if( await canLaunch(whatsappURl_android)){
+    //     await launch(whatsappURl_android);
+    //   }else{
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: new Text("whatsapp no installed")));
+    //   }
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:velocity_x/src/extensions/string_ext.dart';
 import 'package:velocity_x/src/flutter/center.dart';
 class Activity extends StatefulWidget {
@@ -387,5 +388,28 @@ class _ActivityState extends State<Activity> {
 
 
     );
+  }
+  openwhatsapp() async{
+    var whatsapp ="+31626847816";
+    var whatsappURl_android = "https://wa.me/?text=Hello";
+    var whatappURL_ios ="https://wa.me/$whatsapp?text=${Uri.parse("hello")}";
+    await launch( whatsappURl_android);
+    // if(Platform.isIOS){
+    //   // for iOS phone only
+    //   if( await canLaunch(whatappURL_ios)){
+    //     await launch(whatappURL_ios, forceSafariVC: false);
+    //   }else{
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: new Text("whatsapp no installed")));
+    //   }
+    // }
+    // else{
+    //   // android , web
+    //   if( await canLaunch(whatsappURl_android)){
+    //     await launch(whatsappURl_android);
+    //   }else{
+    //     ScaffoldMessenger.of(context).showSnackBar(
+    //         SnackBar(content: new Text("whatsapp no installed")));
+    //   }
   }
 }
