@@ -1,7 +1,9 @@
+// @dart=2.9
 import 'package:bouwaannemersbedrij/screens/home.dart';
 import 'package:bouwaannemersbedrij/screens/routes.dart';
 import 'package:bouwaannemersbedrij/tabs/tabspage.dart';
 import 'package:flutter/material.dart';
+// import 'src/my_app.dart';
 
 void main() {
   runApp(MyApp());
